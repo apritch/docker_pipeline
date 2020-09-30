@@ -8,3 +8,11 @@ rule bwa_map:
 		"shared_data/mapped_output/{sample}.sam"
 	script:
 		"scripts/bwa_map.py"
+
+rule sam_bam_conversion:
+	input:
+		"shared_data/mapped_output/{sample}.sam"
+	output:
+		"shared_data/bam_output/{sample}.bam"
+	script:
+		"scripts/sam_bam_conversion.py"
