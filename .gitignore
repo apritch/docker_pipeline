@@ -1,4 +1,5 @@
 /shared_data/mapped_output/*
+/shared_data/bam_output/*
 /env/*
 /.snakemake/log/*
 /.snakemake/metadata/*
