@@ -1,4 +1,4 @@
 samples:
-    A: data/samples/A.fastq
-    B: data/samples/B.fastq
-    C: data/samples/C.fastq
+    A: shared_data/samples/A.fastq
+    B: shared_data/samples/B.fastq
+    C: shared_data/samples/C.fastq
