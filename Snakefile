@@ -1,5 +1,11 @@
 configfile: "config.yaml"
 
+#rule all:
+#	input:
+#		"shared_data/vcf_output/{sample}.vcf"
+#		"shared_data/analysis/{sample}_qual_plot.sgv",
+#		"shared_data/analysis/{sample}_summary.txt"
+
 rule bwa_map:
 	input:
 		"shared_data/genome.fa",
@@ -44,3 +50,11 @@ rule bcftools_call:
 		"samtools mpileup -g -f {input.fa} {input.bam} | "
 		"bcftools call -mv > {output}"
 
+rule vcf_analysis:
+	input:
+		"shared_data/vcf_output/{sample}.vcf"
+	output:
+		"shared_data/analysis/{sample}_qual_plot.svg",
+		"shared_data/analysis/{sample}_summary.txt"
+	script:
+		"scripts/vcf_analysis.py"

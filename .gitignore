@@ -1,6 +1,8 @@
 /shared_data/mapped_output/*
 /shared_data/bam_output/*
 /shared_data/sorted_bam_output/*
+/shared_data/vcf_output/*
+/shared_data/analysis/*
 /env/*
 /.snakemake/log/*
 /.snakemake/metadata/*
