@@ -14,7 +14,11 @@ def sort_bam():
 
 	#run bwa
 	bam = str(snakemake.output).split("/")[-1]
+<<<<<<< HEAD
 	command = "samtools sort /" + str(snakemake.input[0]) + " -o /shared_data/docker_bam_output/" + bam
+=======
+	command = "samtools sort /" + str(snakemake.input) + " -o /shared_data/docker_bam_output/" + bam
+>>>>>>> index_bam
 	subprocess.run('docker exec ' + container_id + " /bin/sh -c '" + command + "'", shell=True)
 
 	#kill and remove container
