@@ -33,6 +33,14 @@ rule index_bam:
 	shell:
 		"samtools index {input}"
 
+rule bcftools_call:
+	input:
+		fa = "shared_data/genome.fa",
+		bam ="shared_data/sorted_bam_output/{sample}.bam",
+		bai = "shared_data/sorted_bam_output/{sample}.bam.bai"
+	output:
+		"shared_data/vcf_output/{sample}.vcf"
+	shell:
+		"samtools mpileup -g -f {input.fa} {input.bam} | "
+		"bcftools call -mv > {output}"
 
-#	script:
-#		"scripts/index_bam.py"
